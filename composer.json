@@ -1,0 +1,15 @@
+{
+    "name": "root/tabel02",
+    "authors": [
+        {
+            "name": "J.J. Strootman",
+            "email": "jj.strootman@alfa-college.nl"
+        }
+    ],
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+    		"App\\": "app/"
+    	}
+    }
+}
