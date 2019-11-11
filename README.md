@@ -7,3 +7,4 @@ gebouwd.
   
 In de voorbeeld code maken we gebruik van classes, interfaces, namespaces etc...  
   
+Copyright (c) 2019 by J.J. Strootman
