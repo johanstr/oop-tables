@@ -7,12 +7,36 @@ class Container implements iHtmlTag
 	protected $_content;
 	protected $_tagname;
 	protected $_attributes;
+	private $index = 0;
 
 	public function __construct($content, $tagname, array $attributes = [])
 	{
 		$this->set($content);
 		$this->_tagname = $tagname;
 		$this->_attributes = $attributes;
+	}
+
+	private function each()
+	{
+		if(!is_array($this->_content))
+			return $this->_content;
+			
+		$return_value = null;
+
+		if(array_key_exists($this->index, $this->_content))
+			$return_value = $this->_content[$this->index];
+
+		if($this->index < count($this->_content) - 1)
+			$this->index++;
+		else
+			$this->index = 0;
+
+		return $return_value;
+	}
+
+	private function reset()
+	{
+		$this->index = 0;
 	}
 
 	public function tagOpen()
@@ -61,9 +85,9 @@ class Container implements iHtmlTag
 
 	public function get()
 	{
-		if(is_array($tgis->_content)) {
-			reset($this->_content);
-			return each($this->_content);
+		if(is_array($this->_content)) {
+			$this->reset();
+			return $this->each();
 		}
 		
 		return $this->_content;
@@ -77,7 +101,7 @@ class Container implements iHtmlTag
 	public function next()
 	{
 		if(is_array($this->_content))
-			return each($this->_content);
+			return $this->each();
 
 		return $this->_content;
 	}
