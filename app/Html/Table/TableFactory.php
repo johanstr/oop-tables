@@ -16,7 +16,7 @@ class TableFactory
 	*							etc....
 	*						]
 	*/
-	public static function create(array $data, $heading = true, array $attributes = [])
+	public static function create(array $data, mixed $heading = true, array $attributes = [])
 	{
 		$_thead = null;
 		$_tbody = null;

@@ -4,13 +4,13 @@
 
 
 $data_from_db = [
-	[ 'id' => 1, 'voornaam' => 'Joop', 'achternaam' => 'Kopstoot' ],
-	[ 'id' => 2, 'voornaam' => 'Koos', 'achternaam' => 'Klaproos' ],
-	[ 'id' => 3, 'voornaam' => 'Wilhelm', 'achternaam' => 'van Hot naar Her' ],
-	[ 'id' => 4, 'voornaam' => 'Truus', 'achternaam' => 'Molensteen' ],
-	[ 'id' => 5, 'voornaam' => 'Flip', 'achternaam' => 'Kopkaas' ],
-	[ 'id' => 6, 'voornaam' => 'Miep', 'achternaam' => 'Blokletter' ],
-	[ 'id' => 7, 'voornaam' => 'Vivian', 'achternaam' => 'Sleurhut' ]
+	[ 'id' => 1, 'firstname' => 'Joop', 'surname' => 'Kopstoot' ],
+	[ 'id' => 2, 'firstname' => 'Koos', 'surname' => 'Klaproos' ],
+	[ 'id' => 3, 'firstname' => 'Wilhelm', 'surname' => 'van Hot naar Her' ],
+	[ 'id' => 4, 'firstname' => 'Truus', 'surname' => 'Molensteen' ],
+	[ 'id' => 5, 'firstname' => 'Flip', 'surname' => 'Kopkaas' ],
+	[ 'id' => 6, 'firstname' => 'Miep', 'surname' => 'Blokletter' ],
+	[ 'id' => 7, 'firstname' => 'Vivian', 'surname' => 'Sleurhut' ]
 ];
 
 $table = App\Html\Table\TableFactory::create(
@@ -26,7 +26,8 @@ $table = App\Html\Table\TableFactory::create(
 		'th' => [
 			'style' => 'padding: 10px; text-align: left; background-color: darkblue; color: white; text-transform: uppercase;'
 		]
-	]);
+	]
+);
 
 echo '<h1>De table</h1>';
 
