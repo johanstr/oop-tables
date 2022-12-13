@@ -95,12 +95,14 @@ $table = App\Html\Table\TableFactory::create(
 ### CSS Classes
 Je kunt ook CSS classes toevoegen uiteraard. Voorbeeld is dat we de koppen rood willen, dan zou de code er als volgt uitzien (mits we de CSS class hebben gedefinieerd in een stylesheet uiteraard):  
   
+#### CSS
 ```css
     .text-red {
 		color: red;
 	}
 ```  
-en  
+  
+#### PHP
 ```php
     'th' => [
         'style' => 'padding: 10px; text-align: left; text-transform: uppercase;',
