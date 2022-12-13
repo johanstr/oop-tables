@@ -1,5 +1,5 @@
 # OOP
-## Basic Lessen rondom Object Oriented Programming
+## Lessen rondom Basic Object Oriented Programming
   
 
 # Inleiding
