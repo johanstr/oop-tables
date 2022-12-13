@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Basic OOP Instructions</title>
+
+	<style>
+		.text-red {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	
+
 <?php
 
 @include_once('vendor/autoload.php');
@@ -24,7 +41,8 @@ $table = App\Html\Table\TableFactory::create(
 			'style' => 'padding: 10px; border: 1px solid grey; text-align: left;'
 		],
 		'th' => [
-			'style' => 'padding: 10px; text-align: left; background-color: darkblue; color: white; text-transform: uppercase;'
+			'style' => 'padding: 10px; text-align: left; text-transform: uppercase;',
+			'class' => 'text-red'
 		]
 	]
 );
@@ -32,3 +50,6 @@ $table = App\Html\Table\TableFactory::create(
 echo '<h1>De table</h1>';
 
 $table->render();
+?>
+</body>
+</html>

@@ -4,7 +4,7 @@
 
 # Inleiding
 De broncode die je hier vindt is bedoeld voor de workshop(s) 'Basic OOP'.  
-We bouwen hier in vanilla PHP een HTML TableGenerator. Middels de TabelGenerator kunnen we b.v. data uit een database halen en op basis van de data die we dan binnenkrijgen automatisch een tabel genereren in een pagina. We hoeven dan zelf geen HTML-code in te tikken.  
+We bouwen hier in *vanilla PHP* een HTML **TableGenerator**. Middels de TabelGenerator kunnen we b.v. data uit een database halen en op basis van de data automatisch een tabel genereren in een pagina. We hoeven dan zelf geen HTML-code in te tikken.  
 Eventueel kunnen we nog extra parameters meegeven, namelijk:
   
 * Om de kolomkoppen andere namen te geven
@@ -38,7 +38,7 @@ $data_from_db = [
 ```  
   
 ## Zonder styling
-Deze array geven we door aan een Factory genaamd TableFactory. Dit is een static class met slechts 1 method, namelijk create():
+Deze array geven we door aan een **Factory** genaamd **TableFactory**. Dit is een _static_ class met slechts 1 method, namelijk _**create()**_:
   
 ```php
 public static function create(
@@ -48,7 +48,7 @@ public static function create(
 )
 ```  
   
-De method create() maakt een boomstructuur van objecten aan. Via een method render() wordt dan de HTML-code voor de tabel gegenereerd en kan deze als output teruggestuurd worden naar de browser.
+De method _**create**_() maakt een boomstructuur van objecten aan. Via een method _**render**_() wordt dan de HTML-code voor de tabel gegenereerd en kan deze als output teruggestuurd worden naar de browser.
 Om de boomstructuur te genereren roepen we de method create() in de Factory aan:  
 ```php
 $table = App\Html\Table\TableFactory::create(
@@ -63,7 +63,7 @@ Vervolgens hoeven we alleen nog maar de render() opdracht, waarover we beschikke
 ```php
 $table->render();
 ```  
-En het resultaat is dan:  
+### Resultaat  
   
 ![Zonder styling](table_without_styling.png)
   
@@ -88,8 +88,25 @@ $table = App\Html\Table\TableFactory::create(
 );
 ```
   
-Dit levert dan als resultaat het volgende op:
-  
+### Resultaat
+          
 ![Met styling](table_with_styling.png)
+
+### CSS Classes
+Je kunt ook CSS classes toevoegen uiteraard. Voorbeeld is dat we de koppen rood willen, dan zou de code er als volgt uitzien (mits we de CSS class hebben gedefinieerd in een stylesheet uiteraard):  
+  
+```css
+    .text-red {
+		color: red;
+	}
+```  
+en  
+```php
+    'th' => [
+        'style' => 'padding: 10px; text-align: left; text-transform: uppercase;',
+        'class' => 'text-red'
+    ]
+```
+
 
 *Copyright (c) 2019 by J.J. Strootman*
