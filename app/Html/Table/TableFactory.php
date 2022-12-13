@@ -16,7 +16,7 @@ class TableFactory
 	*							etc....
 	*						]
 	*/
-	public static function create(array $data, $heading = true, $attributes = null)
+	public static function create(array $data, $heading = true, array $attributes = [])
 	{
 		$_thead = null;
 		$_tbody = null;
@@ -28,40 +28,40 @@ class TableFactory
 		if($heading !== false) {
 			if(is_array($heading)) {
 				foreach($heading as $th) {
-					$heading_cells[] = new THeadingCell($th, (isset($attributes['th']) ? $attributes['th'] : null));
+					$heading_cells[] = new THeadingCell($th, (isset($attributes['th']) ? $attributes['th'] : []));
 				}
 			} elseif($heading === true) {
 				if(is_array($data[0])) {
 					foreach($data[0] as $key => $val) {
-						$heading_cells[] = new THeadingCell($key, (isset($attributes['th']) ? $attributes['th'] : null));
+						$heading_cells[] = new THeadingCell($key, (isset($attributes['th']) ? $attributes['th'] : []));
 					}
 				}
 			}
 
-			$_thead = new THead(new TRow($heading_cells, (isset($attributes['tr']) ? $attributes['tr'] : null)), (isset($attributes['thead']) ? $attributes['thead'] : null));	
+			$_thead = new THead(new TRow($heading_cells, (isset($attributes['tr']) ? $attributes['tr'] : [])), (isset($attributes['thead']) ? $attributes['thead'] : []));	
 		}
 
 		if(is_array($data)) {
 			foreach($data as $key => $value) {
 				if(is_array($value)) {
 					foreach($value as $key => $column_value) {
-						$data_cells[] = new TDataCell($column_value, (isset($attributes['td']) ? $attributes['td'] : null));
+						$data_cells[] = new TDataCell($column_value, (isset($attributes['td']) ? $attributes['td'] : []));
 					}
-					$table_rows[] = new TRow($data_cells, (isset($attributes['tr']) ? $attributes['tr'] : null));
+					$table_rows[] = new TRow($data_cells, (isset($attributes['tr']) ? $attributes['tr'] : []));
 					unset($data_cells);
 				} else {
-					$table_rows[] = new TRow(new TDataCell($value, (isset($attributes['td']) ? $attributes['td'] : null)), (isset($attributes['tr']) ? $attributes['tr'] : null));
+					$table_rows[] = new TRow(new TDataCell($value, (isset($attributes['td']) ? $attributes['td'] : [])), (isset($attributes['tr']) ? $attributes['tr'] : []));
 				}
 			}
 		} else { //if(is_string($data) || is_numeric($data)) {
-			$table_rows[] = new TRow(new TDataCell($data, (isset($attributes['td']) ? $attributes['td'] : null)), (isset($attributes['tr']) ? $attributes['tr'] : null));
+			$table_rows[] = new TRow(new TDataCell($data, (isset($attributes['td']) ? $attributes['td'] : [])), (isset($attributes['tr']) ? $attributes['tr'] : []));
 		}
 
 		if(!is_null($_thead)) {
-			$_tbody = new TBody($table_rows, (isset($attributes['tbody']) ? $attributes['tbody'] : null));
-			$_table = new Table([ $_thead, $_tbody ], (isset($attributes['table']) ? $attributes['table'] : null));
+			$_tbody = new TBody($table_rows, (isset($attributes['tbody']) ? $attributes['tbody'] : []));
+			$_table = new Table([ $_thead, $_tbody ], (isset($attributes['table']) ? $attributes['table'] : []));
 		} else {
-			$_table = new Table($table_rows, (isset($attributes['table']) ? $attributes['table'] : null));
+			$_table = new Table($table_rows, (isset($attributes['table']) ? $attributes['table'] : []));
 		}
 		
 		return $_table;
