@@ -111,4 +111,4 @@ Je kunt ook CSS classes toevoegen uiteraard. Voorbeeld is dat we de koppen rood 
 ```
 
 
-*Copyright (c) 2019 by J.J. Strootman*
+*Author J.J. Strootman*
